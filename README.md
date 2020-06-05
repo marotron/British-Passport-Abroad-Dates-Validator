@@ -9,11 +9,9 @@ In terms of your history of stay in the UK you must be:
   *   not more than **6 months** (180 days) in total  outside of the UK in **ANY 12-month period within last 5 years**
 
 This script calculates that for you. 
-It needs a CSV file with list of your flights in format:
+It needs a CSV file with list of your flights in format (it should be in the same folder as the script):
 
-```csv
-  DepartDateTime, DepartPlace, IsUK, ArrivePlace, IsUK,Airline, FlNumber, WasCancelled
-```
+    DepartDateTime, DepartPlace, IsUK, ArrivePlace, IsUK,Airline, FlNumber, WasCancelled
 
   where:
   
@@ -23,7 +21,10 @@ It needs a CSV file with list of your flights in format:
 
  * ***DepartPlace***, ***ArrivePlace***, ***Airline***, ***FlNumber*** => *not critical*
 
- CSV file example:
+ example csv file, `example.csv`:
   
-      17/05/10 10:40, LIS, FALSE, EDI, TRUE, RyanAir, FR2222, FALSE
-      17/07/10 13:10, EDI, FALSE, GDN, TRUE, RyanAir, FR3333, FALSE
+    17/05/10 10:40, LIS, FALSE, EDI, TRUE, RyanAir, FR1111, FALSE
+    27/07/10 13:10, EDI, TRUE, GDN, FALSE, RyanAir, FR2222, FALSE
+    02/05/11 10:50, WMI, FALSE, PIK, TRUE, RyanAir, FR3333, FALSE
+    30/07/13 12:20, EDI, TRUE, LPA, FALSE, RyanAir, FR4444, FALSE
+    07/08/13 10:10, LPA, FALSE, GLA, TRUE, WizzAir, FR5555, FALSE
