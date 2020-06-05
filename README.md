@@ -9,9 +9,11 @@ In terms of your history of stay in the UK you must be:
   *   not more than **6 months** (180 days) in total  outside of the UK in **ANY 12-month period within last 5 years**
 
 This script calculates that for you. 
-It needs a CSV file with list of your flights in format (it should be in the same folder as the script):
+It needs:
+* a date of submitting your British Passport application, `DateApply`, and
+* a CSV file (it should be in the same folder as the script) with a list  of your flights in format :
 
-    DepartDateTime, DepartPlace, IsUK, ArrivePlace, IsUK,Airline, FlNumber, WasCancelled
+<pre><b>DepartDateTime</b>, DepartPlace, <b>IsUK</b>, ArrivePlace, <b>IsUK</b>, Airline, FlNumber, <b>WasCancelled</b></pre>
 
   where:
   
@@ -19,7 +21,7 @@ It needs a CSV file with list of your flights in format (it should be in the sam
 
  * ***IsUK***, ***IsUK***, ***WasCancelled*** => *using* `"True"` *or* `"TRUE"` *or* `1` *for* `True`, *else* `False`
 
- * ***DepartPlace***, ***ArrivePlace***, ***Airline***, ***FlNumber*** => *not critical*
+ * ***DepartPlace***, ***ArrivePlace***, ***Airline***, ***FlNumber*** => ***not critical** and will **NOT** change the result of the algorith, however, it can be usefull as it an additional information*
 
  example csv file, `example.csv`:
   
