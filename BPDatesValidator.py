@@ -26,7 +26,10 @@ from datetime import datetime, date, timedelta
 #   CSV file example (example.scv):
 #       17/05/10 10:40,HHN,FALSE,EDI,TRUE,RyanAir,FR4382,TRUE
 # 
-# Please edit apply date (line ~110) to suit your needs
+# Please edit apply date (line ~100) or run script with date as additional arg, eg:
+#   >   python3 BPDatesValidator.py 101220
+#   where:
+#       101220 translates to 10 October 2020 (format DDMMYY)
 
 
 def colOrCol(color_1, color_2, condition, text):
@@ -97,8 +100,13 @@ class Day:
 
 
 # Edit the date when you are planning to apply (below):
-dateApply = dateX(2021, 4, 5)
+dateApplyDefault = dateX(2021, 4, 5)
 #######################################################
+if len(sys.argv)>1:
+    dateTemp = datetimeX.strptime(sys.argv[1].strip(), '%d%m%y').date()
+    dateApply = dateX(dateTemp.year, dateTemp.month, dateTemp.day)
+else:  
+    dateApply = dateApplyDefault
     
 flights = []
 errors = []
