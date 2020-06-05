@@ -1,7 +1,8 @@
+[img_01]: ./screenshot.png "img_01"
+
 # British Passport Abroad Dates Validator
 
-This script helps with an application fo British Pasport / Citizenship.
-This script helps with an application fo British Pasport / Citizenship.
+This script helps with an application of British Pasport / Citizenship.
 There are several requirements for you if willing to apply.
 In terms of your history of stay in the UK you must be:
   *   not more than **450 days** in total outside of the UK in **last 5 years**
@@ -23,7 +24,7 @@ It needs both:
 
  * ***IsUK***, ***IsUK***, ***WasCancelled*** => *using* `"True"` *or* `"TRUE"` *or* `1` *for* `True`, *else* `False`
 
- * ***DepartPlace***, ***ArrivePlace***, ***Airline***, ***FlNumber*** => ***not critical** and will **NOT** change the result of the algorith, however, it can be usefull as it an additional information*
+ * ***DepartPlace***, ***ArrivePlace***, ***Airline***, ***FlNumber*** => ***not critical** and will **NOT** change the result of the algorith, however, it can be usefull as it provides an additional information*
 
  example csv file, `example.csv`:
   
@@ -32,3 +33,5 @@ It needs both:
     02/05/11 10:50, WMI, FALSE, PIK, TRUE, RyanAir, FR3333, FALSE
     30/07/13 12:20, EDI, TRUE, LPA, FALSE, RyanAir, FR4444, FALSE
     07/08/13 10:10, LPA, FALSE, GLA, TRUE, WizzAir, FR5555, FALSE
+    
+![img_01][img_01]
