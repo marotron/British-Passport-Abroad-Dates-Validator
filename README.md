@@ -34,4 +34,6 @@ It needs both:
     30/07/13 12:20, EDI, TRUE, LPA, FALSE, RyanAir, FR4444, FALSE
     07/08/13 10:10, LPA, FALSE, GLA, TRUE, WizzAir, FR5555, FALSE
     
+Result of running the script:
+
 ![img_01][img_01]
