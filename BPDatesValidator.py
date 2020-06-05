@@ -1,11 +1,8 @@
 from term_style import ctyle
 
-import csv
-import sys
-import os
-from datetime import datetime
-from datetime import date
-from datetime import timedelta
+import csv, sys, os, fnmatch
+from datetime import datetime, date, timedelta
+
 
 # This script helps with an application fo British Pasport / Citizenship.
 # There are several requirements for you if willing to apply.
@@ -15,20 +12,22 @@ from datetime import timedelta
 #       in last 12 months
 #   *   not more than 6 months in total (180 days) in total outside of
 #       the UK in ANY 12-month period within last 5 years
-# 
+#
 # This script calculates that for you. 
 # It needs a CSV file with list of your flights in format:
 #
 # DepartDateTime,DepartPlace,IsUK,ArrivePlace,IsUK,Airline,FlNumber,WasCancelled
 #
 #   where:
-#       DepartDateTime => DD/MM/YY HH:MM
+#       DepartDateTime => DD/MM/YY HH:MM or DD/MM/YYYY or DD/MM/YY
 #       IsUK, IsUK, WasCancelled => "True" or "TRUE" or 1 for True, else False
 #       DepartPlace, ArrivePlace, Airline, FlNumber => not critical
 #
-#   Example:
-#       16/05/10 10:10,GDN,FALSE,PIK,TRUE,RyanAir,FR9999,FALSE
-#
+#   CSV file example (example.scv):
+#       17/05/10 10:40,HHN,FALSE,EDI,TRUE,RyanAir,FR4382,TRUE
+# 
+# Please edit apply date (line ~110) to suit your needs
+
 
 def colOrCol(color_1, color_2, condition, text):
     return f'{color_1 if condition else color_2}{text}{ctyle.END}'
@@ -97,6 +96,10 @@ class Day:
         return self.date
 
 
+# Edit the date when you are planning to apply (below):
+dateApply = dateX(2021, 4, 5)
+#######################################################
+    
 flights = []
 errors = []
 cancelled = []
@@ -110,10 +113,6 @@ date5YDone = False
 date1YStarDone = False
 date1YDone = False
 
-
-# Edit the date when you are planning to apply (below)
-dateApply = dateX(2021, 4, 5)
-
 date5YStar = dateApply.lastDay().shiftYear(-5).shiftDay(1)
 date1YStar = dateApply.lastDay().shiftYear(-1).shiftDay(1)
 
@@ -121,16 +120,10 @@ date5Y = dateApply.shiftYear(-5).shiftDay(1)
 date1Y = dateApply.shiftYear(-1).shiftDay(1)
 dateOld = date5Y.firstDay()
 
-# debug only. delete later
-print(f'{dateApply = }')
-print(f'{date1Y = }')
-print(f'{date5Y = }')
-print(f'{dateOld = }')
+path = os.path.dirname(os.path.abspath(__file__))
+my_file = [os.path.join(path, i) for i in os.listdir(path) if fnmatch.fnmatch(i, "*.csv")][0]
 
-THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-my_file = os.path.join(THIS_FOLDER, 'Flights - Sheet6.csv')
-
-print(f'\n{ctyle.U}READING ENTRIES (FLIGHTS) IN THE CSV FILE:{ctyle.END}')
+print(f'\n{ctyle.U}READING ENTRIES (FLIGHTS) IN THE CSV FILE, \n{my_file}:{ctyle.END}')
 with open(my_file) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     flight_count = 0
@@ -181,19 +174,7 @@ if cancelled:
             f"({'UK' if ca[2] else 'NON-UK'}) to {ca[3]} "
             f"({'UK' if ca[4] else 'NON-Uk'}) ")
 
-# print(f'{ctyle.G}-----------------------------------------------{ctyle.END}')
-
-# print('Flights list (sample):')
-# for ro in range(10):
-#     print(f'\t{flights[ro].date}')
-# print('\t...')
-
 flights.sort(reverse=False, key=Flight.getDate)
-
-# print('\nFlights list Sorted (sample):')
-# for ro in range(10):
-#     print(f'\t{flights[ro].getDate()}')
-# print('\t...')
 
 print(f'{ctyle.G}-----------------------------------------------{ctyle.END}')
 print(f'\n{ctyle.U}ANALYSING THE FLIGHTS:{ctyle.END}')
