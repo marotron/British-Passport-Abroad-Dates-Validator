@@ -6,11 +6,13 @@ There are several requirements for you if willing to apply.
 In terms of your history of stay in the UK you must be:
   *   not more than **450 days** in total outside of the UK in **last 5 years**
   *   not more than **3 months** (~90 days) in total outside of the UK in **last 12 months**
-  *   not more than **6 months** (180 days) in total  outside of the UK in **ANY 12-month period within last 5 years**
+  *   not more than **6 months** (~180 days) in total  outside of the UK in **ANY 12-month period within last 5 years**
 
 This script calculates that for you. 
-It needs:
-* a date of submitting your British Passport application, `DateApply`, and
+
+It needs both:
+* a date of submitting your British Passport application, `DateApply` (line ~100 in the main script file) or run the script with the extra date argument in format `DDMMYY`, eg:
+    <pre>$ python3 BPDateValidator.py <b>101220</b></pre>
 * a CSV file (it should be in the same folder as the script) with a list  of your flights in format :
 
 <pre><b>DepartDateTime</b>, DepartPlace, <b>IsUK</b>, ArrivePlace, <b>IsUK</b>, Airline, FlNumber, <b>WasCancelled</b></pre>
