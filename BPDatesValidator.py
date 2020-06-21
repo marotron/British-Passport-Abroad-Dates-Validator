@@ -26,7 +26,7 @@ from datetime import datetime, date, timedelta
 #   CSV file example (example.scv):
 #       17/05/10 10:40,HHN,FALSE,EDI,TRUE,RyanAir,FR4382,TRUE
 # 
-# Please edit apply date (line ~100) or run script with date as additional arg, eg:
+# Please run script with date as additional arg, eg:
 #   >   python3 BPDatesValidator.py 101220
 #   where:
 #       101220 translates to 10 October 2020 (format DDMMYY)
@@ -98,15 +98,16 @@ class Day:
     def getDate(self):
         return self.date
 
-
-# Edit the date when you are planning to apply (below):
-dateApplyDefault = dateX(2021, 4, 5)
+    
 #######################################################
+
 if len(sys.argv)>1:
     dateTemp = datetimeX.strptime(sys.argv[1].strip(), '%d%m%y').date()
     dateApply = dateX(dateTemp.year, dateTemp.month, dateTemp.day)
 else:  
-    dateApply = dateApplyDefault
+    print(f'{ctyle._RED} Error:{ctyle.END}{ctyle.RED} Missing Argument{ctyle.END}{ctyle.G}\n\tEnter the date of UK passport application, '
+          f'in format {ctyle.END}{ctyle.GRN}DDMMYY{ctyle.END}{ctyle.G}, e.g:{ctyle.END}\n\t> {ctyle.BLU}python3 {sys.argv[0].strip()} {ctyle.GRN}020223{ctyle.END}')
+    sys.exit();
     
 flights = []
 errors = []
