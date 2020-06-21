@@ -13,7 +13,7 @@ This script calculates that for you.
 
 It needs both:
 * a date of submitting your British Passport application, as an argument when run the script, in format `DDMMYY`, eg:
-    <pre>$ python3 BPDateValidator.py <b>101220</b></pre>
+    <pre>$ BPDateValidator.py <b>101220</b></pre>
 * a CSV file (it should be in the same folder as the script) with a list  of your flights in format :
 
 <pre><b>DepartDateTime</b>, DepartPlace, <b>IsUK</b>, ArrivePlace, <b>IsUK</b>, Airline, FlNumber, <b>WasCancelled</b></pre>
