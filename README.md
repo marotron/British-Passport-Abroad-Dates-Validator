@@ -12,7 +12,7 @@ In terms of your history of stay in the UK you must be:
 This script calculates that for you. 
 
 It needs both:
-* a date of submitting your British Passport application, `DateApply` (line ~100 in the main script file) or run the script with the extra date argument in format `DDMMYY`, eg:
+* a date of submitting your British Passport application, as an argument when run the script, in format `DDMMYY`, eg:
     <pre>$ python3 BPDateValidator.py <b>101220</b></pre>
 * a CSV file (it should be in the same folder as the script) with a list  of your flights in format :
 
