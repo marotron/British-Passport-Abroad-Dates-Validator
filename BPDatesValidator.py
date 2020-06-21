@@ -1,10 +1,16 @@
+#!/usr/bin/env python3
 from term_style import ctyle
 
 import csv, sys, os, fnmatch
 from datetime import datetime, date, timedelta
 
+__author__ = “Marek Kujawa”
 
-# This script helps with an application fo British Pasport / Citizenship.
+# British Passport Abroad Dates Validator.
+#
+# author: Marek Kujawa
+#
+# This script helps with an application fo British Pasport / Citizenship.
 # There are several requirements for you if willing to apply.
 # In terms of your history of stay in the UK you must be:
 #   *   not more than 450 days in total outside of the UK in last 5 years
@@ -27,7 +33,7 @@ from datetime import datetime, date, timedelta
 #       17/05/10 10:40,HHN,FALSE,EDI,TRUE,RyanAir,FR4382,TRUE
 # 
 # Please run script with date as additional arg, eg:
-#   >   python3 BPDatesValidator.py 101220
+#   >   BPDatesValidator.py 101220
 #   where:
 #       101220 translates to 10 October 2020 (format DDMMYY)
 
