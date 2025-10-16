@@ -4,7 +4,7 @@ from term_style import ctyle
 import csv, sys, os, fnmatch
 from datetime import datetime, date, timedelta
 
-__author__ = “Marek Kujawa”
+__author__ = "Marek Kujawa"
 
 # British Passport Abroad Dates Validator.
 #
