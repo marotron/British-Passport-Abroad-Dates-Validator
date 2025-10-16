@@ -1,0 +1,26 @@
+# Test requirements for British Passport Abroad Dates Validator
+# 
+# This project uses only Python standard library modules,
+# so no external dependencies are required for testing.
+#
+# Required Python version: 3.6+
+#
+# Standard library modules used:
+# - unittest (for testing framework)
+# - datetime (for date/time operations)
+# - csv (for CSV parsing)
+# - tempfile (for temporary file creation)
+# - io (for string I/O operations)
+# - os, sys (for system operations)
+#
+# To run tests:
+# python3 tests/run_tests.py
+#
+# Or run individual test files:
+# python3 tests/test_datex.py
+# python3 tests/test_datetimex.py
+# python3 tests/test_flight.py
+# python3 tests/test_period.py
+# python3 tests/test_day.py
+# python3 tests/test_utility_functions.py
+# python3 tests/test_csv_parsing.py
